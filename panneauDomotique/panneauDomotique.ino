@@ -23,21 +23,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(10);
-  r[0] = val;
-  r[1] = val;
-  g[0] = val;
-  g[1] = val;
-  b[0] = val;
-  b[1] = val;
+  delay(200);
+
+    r[sign] = 0xFF;
+    g[sign] = 0;
+    r[1 - sign] = 0;
+    g[1 - sign] = 0xFF;
+
+  sign = 1 - sign;
   sendPattern(r, g, b, LED_NB);
-  if (sign) {
-    val++;
-  } else {
-    val--;
-  }
-  if ((val == 0) || (val == 250)) {
-    sign = 1 - sign;
-  }
 
 }
